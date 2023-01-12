@@ -3,15 +3,16 @@ body {
     background:  linear-gradient(#009688 15%,#d8dbd5 15%, #d8dbd5);
 } 
 
+
+/***************************************************************  
+GENERICS
+***************************************************************/
 .container-fluid {
     height: 90%;
     width: 95%;
     background-color: #f3eeea;
 }
 
-/***************************************************************  
-GENERICS
-***************************************************************/
 .fa-solid {
     cursor: pointer;
 }
@@ -19,7 +20,6 @@ GENERICS
 /***************************************************************  
 USER & CONTACT PAGE
 ***************************************************************/
-
 
  /* Image user & notification */
 .card-user,.card-notification {
@@ -52,7 +52,7 @@ USER & CONTACT PAGE
 /* User contacts */
 
 .card-my-contacts {
-    height: 75%;
+    height: 73%;
     overflow-y: auto;
 }
 
@@ -62,4 +62,41 @@ USER & CONTACT PAGE
 }
 
 
+/***************************************************************  
+CHAT PAGE
+***************************************************************/
+/* Chat header */
+.chat-header,.chat-footer {
+    height: 10%;
+}
 
+.chat-contact-info img {
+    border-radius: 50%;
+}
+
+
+/* Chat text */
+.chat-text-area {
+    height: 80%;
+    overflow-y: scroll;
+    background-image: url(../img/mine.jpg);
+}
+
+.my-sending-message,.contact-message {
+    background-color: white;
+    padding: 15px 15px;
+    border-radius: 15px;
+    width: 30%;
+    max-width: 40%;
+    word-wrap: break-word;
+    position: relative;
+}
+
+
+.chat-text-area time {
+    font-size: 15px;
+    position: absolute;
+    right: 3%;
+    bottom: 0%;
+    color: lightgrey;
+}
