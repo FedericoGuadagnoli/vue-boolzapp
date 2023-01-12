@@ -57,10 +57,13 @@ USER & CONTACT PAGE
 }
 
 .contact {
-    height: 15%;
+    height: 12%;
     border-bottom: 1px solid #dee2e6;
 }
 
+.contact:hover {
+    background-color: grey;
+}
 
 /***************************************************************  
 CHAT PAGE
@@ -90,8 +93,12 @@ CHAT PAGE
     max-width: 40%;
     word-wrap: break-word;
     position: relative;
+    font-size: 1.5rem;
 }
 
+.my-sending-message {
+    background-color: #d5f9ba;
+}
 
 .chat-text-area time {
     font-size: 15px;
@@ -99,4 +106,25 @@ CHAT PAGE
     right: 3%;
     bottom: 0%;
     color: lightgrey;
+}
+
+.my-sending-message .hidden-box-actions,.contact-message .hidden-box-actions {
+    background-color: white;
+    padding: 15px 15px;
+    word-wrap: break-word;
+    width: 50%;
+    font-size: 1.3rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 94%;
+    left: 50%;
+    text-align: center;
+    display: none;
+}
+
+.my-sending-message:active .hidden-box-actions,
+.contact-message:active .hidden-box-actions
+{
+    display: block;
 }
