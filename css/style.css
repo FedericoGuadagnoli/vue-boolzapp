@@ -1,0 +1,65 @@
+body {
+    height: 100vh;
+    background:  linear-gradient(#009688 15%,#d8dbd5 15%, #d8dbd5);
+} 
+
+.container-fluid {
+    height: 90%;
+    width: 95%;
+    background-color: #f3eeea;
+}
+
+/***************************************************************  
+GENERICS
+***************************************************************/
+.fa-solid {
+    cursor: pointer;
+}
+
+/***************************************************************  
+USER & CONTACT PAGE
+***************************************************************/
+
+
+ /* Image user & notification */
+.card-user,.card-notification {
+    height: 10%;
+}
+
+.card-user img, .container-icon,.contact img {
+    border-radius: 50%;
+}
+
+.card-notification {
+    background-color: #8edafc;
+}
+
+.container-icon{
+   height: 3rem;
+   width: 3rem;
+}
+
+.notification-icon {
+    color: #8edafc;
+}
+
+
+/* User search button */
+.input-group{
+    height: 7%;
+}
+
+/* User contacts */
+
+.card-my-contacts {
+    height: 75%;
+    overflow-y: auto;
+}
+
+.contact {
+    height: 15%;
+    border-bottom: 1px solid #dee2e6;
+}
+
+
+
