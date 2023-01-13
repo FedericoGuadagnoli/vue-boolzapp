@@ -59,6 +59,7 @@ USER & CONTACT PAGE
 .contact {
     height: 12%;
     border-bottom: 1px solid #dee2e6;
+    cursor: pointer;
 }
 
 .contact:hover {
@@ -85,7 +86,7 @@ CHAT PAGE
     background-image: url(../img/mine.jpg);
 }
 
-.my-sending-message,.contact-message {
+.sent,.received {
     background-color: white;
     padding: 15px 15px;
     border-radius: 15px;
@@ -96,7 +97,7 @@ CHAT PAGE
     font-size: 1.5rem;
 }
 
-.my-sending-message {
+.sent {
     background-color: #d5f9ba;
 }
 
@@ -108,7 +109,7 @@ CHAT PAGE
     color: lightgrey;
 }
 
-.my-sending-message .hidden-box-actions,.contact-message .hidden-box-actions {
+.sent .hidden-box-actions,.received .hidden-box-actions {
     background-color: white;
     padding: 15px 15px;
     word-wrap: break-word;
@@ -123,8 +124,8 @@ CHAT PAGE
     display: none;
 }
 
-.my-sending-message:active .hidden-box-actions,
-.contact-message:active .hidden-box-actions
+.sent:active .hidden-box-actions,
+.received:active .hidden-box-actions
 {
     display: block;
 }

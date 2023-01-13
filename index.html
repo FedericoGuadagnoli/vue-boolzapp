@@ -12,7 +12,7 @@
   <title>Document</title>
 </head>
 <body class="d-flex justify-content-center align-items-center">
-  <div class="container-fluid">
+  <div class="container-fluid" id="root">
     <div class="row h-100 d-flex">
 
       <!-- CONTACT PAGE -->
@@ -24,10 +24,10 @@
           <!-- Image user -->
           <div class="h-100 d-flex align-items-center">
             <figure class="h-100 m-0">
-              <img src="img/avatar_4.jpg" alt="Me" class="img-fluid h-100">
+              <img :src="`img/avatar${user.avatar}.jpg`" alt="user.name" class="img-fluid h-100">
             </figure>
             <div class="user-name">
-              <h4 class="text-capitalize">federico</h4>
+              <h4 class="text-capitalize">{{user.name}}</h4>
             </div>
           </div>
 
@@ -61,185 +61,25 @@
         </div>
         
         <!-- User contacts -->
-        <div class="card-my-contacts bg-light">
-          <div class="contact d-flex p-1 border-top border-bottom">
+        <div class="card-my-contacts bg-light p-1 border-top border-bottom">
+          <div v-for="(contact,i) in contacts" class="contact d-flex p-1" @click="setCurrentIndex(i)">
               <figure class="h-100 m-0">
-                <img src="img/avatar_4.jpg" alt="Me" class="img-fluid h-100">
+                <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="img-fluid h-100">
               </figure>
-              <div class="contact-info">
+              <div class="contact-info w-25 ms-2">
                 <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
+                  <h4 class="text-capitalize">{{contact.name}}</h4>
                 </div>
                 <div class="last-message-send">
                   <span>Ultimo messaggio inviato</span>
                 </div>
               </div>
               <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
-              </time>
-          </div>
-          <div class="contact  d-flex p-1">
-              <figure class="h-100 m-0">
-                <img src="img/avatar_1.jpg" alt="Me" class="img-fluid h-100">
-              </figure>
-              <div class="contact-info">
-                <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
-                </div>
-                <div class="last-message-send">
-                  <span>Ultimo messaggio inviato</span>
-                </div>
-              </div>
-              <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
-              </time>
-          </div>
-          <div class="contact  d-flex p-1">
-              <figure class="h-100 m-0">
-                <img src="img/avatar_2.jpg" alt="Me" class="img-fluid h-100">
-              </figure>
-              <div class="contact-info">
-                <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
-                </div>
-                <div class="last-message-send">
-                  <span>Ultimo messaggio inviato</span>
-                </div>
-              </div>
-              <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
-              </time>
-          </div>
-          <div class="contact  d-flex p-1">
-              <figure class="h-100 m-0">
-                <img src="img/avatar_3.jpg" alt="Me" class="img-fluid h-100">
-              </figure>
-              <div class="contact-info">
-                <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
-                </div>
-                <div class="last-message-send">
-                  <span>Ultimo messaggio inviato</span>
-                </div>
-              </div>
-              <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
-              </time>
-          </div>
-          <div class="contact  d-flex p-1">
-              <figure class="h-100 m-0">
-                <img src="img/avatar_4.jpg" alt="Me" class="img-fluid h-100">
-              </figure>
-              <div class="contact-info">
-                <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
-                </div>
-                <div class="last-message-send">
-                  <span>Ultimo messaggio inviato</span>
-                </div>
-              </div>
-              <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
-              </time>
-          </div>
-          <div class="contact  d-flex p-1">
-              <figure class="h-100 m-0">
-                <img src="img/avatar_5.jpg" alt="Me" class="img-fluid h-100">
-              </figure>
-              <div class="contact-info">
-                <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
-                </div>
-                <div class="last-message-send">
-                  <span>Ultimo messaggio inviato</span>
-                </div>
-              </div>
-              <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
-              </time>
-          </div>
-          <div class="contact  d-flex p-1">
-              <figure class="h-100 m-0">
-                <img src="img/avatar_6.jpg" alt="Me" class="img-fluid h-100">
-              </figure>
-              <div class="contact-info">
-                <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
-                </div>
-                <div class="last-message-send">
-                  <span>Ultimo messaggio inviato</span>
-                </div>
-              </div>
-              <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
-              </time>
-          </div>
-          <div class="contact  d-flex p-1">
-              <figure class="h-100 m-0">
-                <img src="img/avatar_7.jpg" alt="Me" class="img-fluid h-100">
-              </figure>
-              <div class="contact-info">
-                <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
-                </div>
-                <div class="last-message-send">
-                  <span>Ultimo messaggio inviato</span>
-                </div>
-              </div>
-              <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
-              </time>
-          </div>
-          <div class="contact  d-flex p-1">
-              <figure class="h-100 m-0">
-                <img src="img/avatar_8.jpg" alt="Me" class="img-fluid h-100">
-              </figure>
-              <div class="contact-info">
-                <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
-                </div>
-                <div class="last-message-send">
-                  <span>Ultimo messaggio inviato</span>
-                </div>
-              </div>
-              <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
-              </time>
-          </div>
-          <div class="contact  d-flex p-1">
-              <figure class="h-100 m-0">
-                <img src="img/avatar_1.jpg" alt="Me" class="img-fluid h-100">
-              </figure>
-              <div class="contact-info">
-                <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
-                </div>
-                <div class="last-message-send">
-                  <span>Ultimo messaggio inviato</span>
-                </div>
-              </div>
-              <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
-              </time>
-          </div>
-          <div class="contact  d-flex p-1">
-              <figure class="h-100 m-0">
-                <img src="img/avatar_2.jpg" alt="Me" class="img-fluid h-100">
-              </figure>
-              <div class="contact-info">
-                <div class="contact-name">
-                  <h4 class="text-capitalize">michele</h4>
-                </div>
-                <div class="last-message-send">
-                  <span>Ultimo messaggio inviato</span>
-                </div>
-              </div>
-              <time class=" col-8 last-message text-end ">
-                <span> 12:00</span>
+                <span>{{contact.messages[0].date}}</span>
               </time>
           </div>
         </div>      
-        </div>
+      </div>
 
       <!-- CHAT PAGE -->
       <div class="col-8 h-100 p-0">
@@ -250,15 +90,15 @@
           <!-- info user in chat -->
           <div class="chat-contact-info h-100 d-flex align-items-center gap-3">
             <figure class="h-100 m-0">
-              <img src="img/avatar_4.jpg" alt="Me" class="img-fluid h-100">
+              <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" :alt="contacts[currentIndex].name" class="img-fluid h-100">
             </figure>
             <div class="contact-info">
               <div class="contact-name">
-                <h4 class="text-capitalize">michele</h4>
+                <h4 class="text-capitalize">{{contacts[currentIndex].name}}</h4>
               </div>
               <div class="last-access">
-                <span>Ultimo accesso oggi alle 
-                  <time>12:00</time>
+                <span>Ultimo accesso   
+                  <time>{{contacts[currentIndex].messages[0].date}}</time>
                 </span>
               </div>
             </div>
@@ -280,10 +120,10 @@
         <div class="chat-text-area">
 
           <!-- User message -->
-          <div class="col-12 d-flex justify-content-end py-4">
-            <div class="my-sending-message me-5">
-              <span> Hai portato il cane a fare la passeggiata?</span>
-              <time>12:00</time>
+          <div  v-for="message in contacts[currentIndex].messages.sort(sortByDate)" :key="message.date" class="col-12 d-flex flex-column  py-4">
+            <div v-if="message.status === 'sent' || message.status === 'received'" :class="[{'sent align-self-end me-5': message.status === 'sent'}, {'received align-self-stretch ms-5': message.status === 'received'}]">
+             <span>{{message.text}}</span>
+              <time>{{message.date}}</time>
               <div class="hidden-box-actions">
                 <span>Info messaggio</span>
                 <span>Cancella messaggio</span>
@@ -291,44 +131,8 @@
             </div>
           </div>
 
-          <!-- Contact message -->
-          <div class="col-12 d-flex justify-content-start py-4">
-            <div class="contact-message ms-5">
-              <span> Si si tutto apposto!</span>
-              <time>12:00</time>
-              <div class="hidden-box-actions">
-                <span>Info messaggio</span>
-                <span>Cancella messaggio</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- User message -->
-          <div class="col-12 d-flex justify-content-end py-4">
-            <div class="my-sending-message me-5">
-              <span> Ricordati che devi morire!</span>
-              <time>12:00</time>
-              <div class="hidden-box-actions">
-                <span>Info messaggio</span>
-                <span>Cancella messaggio</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Contact message -->
-          <div class="col-12 d-flex justify-content-start py-4">
-            <div class="contact-message ms-5">
-              <span> Si si mo me lo scrivo....</span>
-              <time>12:00</time>
-              <div class="hidden-box-actions">
-                <span>Info messaggio</span>
-                <span>Cancella messaggio</span>
-              </div>
-            </div>
-          </div>
+         
         </div>
-          
-
         <!-- Chat write my text -->
         <div class="chat-footer d-flex justify-content-between align-items-center">
 
