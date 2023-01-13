@@ -210,7 +210,14 @@ const app = Vue.createApp({
               ],
 
               currentIndex: 0,
-              newMessage : ''
+              newMessage : '',
+              filterValue: ''
+        }
+    },
+
+    computed: {
+      filteredContacts() {
+        return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.filterValue.toLowerCase()));
         }
     },
 
@@ -229,17 +236,19 @@ const app = Vue.createApp({
             text : this.newMessage,
             status : 'sent'
           }
-          this.contacts[this.currentIndex].messages.push(NewMessageObject);
-          this.newMessage = '';
-        setTimeout(() => {
-          let automaticMessage = {
-          text : 'Ok',
-          status : 'received'
-          }
-          this.contacts[this.currentIndex].messages.push(automaticMessage);
-        }, 1000)
-      }
-    }
+          if (this.newMessage){
+            this.contacts[this.currentIndex].messages.push(NewMessageObject);
+            this.newMessage = '';
+            setTimeout(() => {
+              let automaticMessage = {
+              text : 'Ok',
+              status : 'received'
+            }
+            this.contacts[this.currentIndex].messages.push(automaticMessage);
+            }, 1000)
+          }   
+        }
+      } 
 })
 
 app.mount('#root');

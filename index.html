@@ -54,15 +54,15 @@
         
         <!-- Search contact button -->
         <div class="input-group p-2 ">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon1">
+          <button @click="search" class="btn btn-outline-secondary" type="button" id="button-addon1">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Example text with button addon" aria-describedby="button-addon1">
+          <input v-model="filterValue"  type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Example text with button addon" aria-describedby="button-addon1">
         </div>
         
         <!-- User contacts -->
         <div class="card-my-contacts bg-light p-1 border-top border-bottom">
-          <div v-for="(contact,i) in contacts" class="contact d-flex p-1" @click="setCurrentIndex(i)">
+          <div v-for="(contact,i) in filteredContacts"  v-show="contact.name.includes(filterValue)" class="contact d-flex p-1" @click="setCurrentIndex(i)">
               <figure class="h-100 m-0">
                 <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="img-fluid h-100">
               </figure>
