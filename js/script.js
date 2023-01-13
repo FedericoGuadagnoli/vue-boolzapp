@@ -209,7 +209,8 @@ const app = Vue.createApp({
                 },
               ],
 
-              currentIndex : 0
+              currentIndex: 0,
+              newMessage : ''
         }
     },
 
@@ -220,7 +221,24 @@ const app = Vue.createApp({
 
         sortByDate(a, b) {
             return new Date(a.date) - new Date(b.date);
-        }
+        },
+
+        addMessage() {
+          let NewMessageObject = {
+            // date: new Date(),
+            text : this.newMessage,
+            status : 'sent'
+          }
+          this.contacts[this.currentIndex].messages.push(NewMessageObject);
+          this.newMessage = '';
+        setTimeout(() => {
+          let automaticMessage = {
+          text : 'Ok',
+          status : 'received'
+          }
+          this.contacts[this.currentIndex].messages.push(automaticMessage);
+        }, 1000)
+      }
     }
 })
 
