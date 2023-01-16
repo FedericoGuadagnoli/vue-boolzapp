@@ -4,9 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Boostrap -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css' integrity='sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==' crossorigin='anonymous'/>
+ 
+  <!-- Font Awesome -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css' integrity='sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==' crossorigin='anonymous'/>
+  
+  <!-- Vue JS -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.45/vue.global.min.js' integrity='sha512-Pdnl+dKWHA0jEnmhogUHlOw3FqDeujiEc3XQDkvMrPUAvytiU2cZiknw2xDPgDS+u2prg2n+6eKz3CPG588gTQ==' crossorigin='anonymous'></script>
+  
+  <!-- Luxon -->
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+  
   <script defer src="js/script.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
@@ -62,7 +72,7 @@
         
         <!-- User contacts -->
         <div class="card-my-contacts bg-light p-1 border-top border-bottom">
-          <div v-for="(contact,i) in filteredContacts"  v-show="contact.name.includes(filterValue)" class="contact d-flex p-1" @click="setCurrentIndex(i)">
+          <div v-for="(contact,i) in filteredContacts"  v-show="contact.name.includes(filterValue) " class="contact d-flex p-1" @click="setCurrentIndex(i)">
               <figure class="h-100 m-0">
                 <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="img-fluid h-100">
               </figure>

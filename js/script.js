@@ -1,9 +1,11 @@
+const dt = luxon.DateTime;
+
 const app = Vue.createApp({
     data() {
         return {
             user: {
                 name: 'federico',
-                avatar: '_io'
+                avatar: '_4'
             },
             contacts: [
                 {
@@ -218,7 +220,7 @@ const app = Vue.createApp({
     computed: {
       filteredContacts() {
         return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.filterValue.toLowerCase()));
-        }
+        },
     },
 
     methods : {
@@ -230,11 +232,16 @@ const app = Vue.createApp({
             return new Date(a.date) - new Date(b.date);
         },
 
+        getCurrentMoment() {
+          return dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+        },
+
         addMessage() {
           let NewMessageObject = {
             // date: new Date(),
             text : this.newMessage,
-            status : 'sent'
+            status : 'sent',
+            date : this.getCurrentMoment()
           }
           if (this.newMessage){
             this.contacts[this.currentIndex].messages.push(NewMessageObject);
@@ -242,7 +249,8 @@ const app = Vue.createApp({
             setTimeout(() => {
               let automaticMessage = {
               text : 'Ok',
-              status : 'received'
+              status : 'received',
+              date :  this.getCurrentMoment()
             }
             this.contacts[this.currentIndex].messages.push(automaticMessage);
             }, 1000)
