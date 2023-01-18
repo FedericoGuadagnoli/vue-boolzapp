@@ -64,16 +64,17 @@
         
         <!-- Search contact button -->
         <div class="input-group p-2 ">
-          <button @click="search" class="btn btn-outline-secondary" type="button" id="button-addon1">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon1">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <input v-model="filterValue"  type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Example text with button addon" aria-describedby="button-addon1">
+          <input  type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Example text with button addon" aria-describedby="button-addon1" v-model.trim="filterValue">
         </div>
         
         <!-- User contacts -->
         <div class="card-my-contacts bg-light p-1 border-top border-bottom">
-          <div v-for="(contact,i) in filteredContacts"  v-show="contact.name.includes(filterValue) " class="contact d-flex p-1" @click="setCurrentIndex(i)">
-              <figure class="h-100 m-0">
+          <div v-for="(contact,i) in filteredContacts" @click="setCurrentIndex(i)">
+            <div class="contact d-flex p-1" >
+              <figure v-if="contact.visible" class="h-100 m-0">
                 <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name" class="img-fluid h-100">
               </figure>
               <div class="contact-info w-25 ms-2">
@@ -87,6 +88,7 @@
               <time class=" col-8 last-message text-end ">
                 <span>{{contact.messages[0].date}}</span>
               </time>
+            </div>
           </div>
         </div>      
       </div>

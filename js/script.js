@@ -213,14 +213,18 @@ const app = Vue.createApp({
 
               currentIndex: 0,
               newMessage : '',
-              filterValue: ''
+              filterValue : ''
         }
     },
 
     computed: {
       filteredContacts() {
-        return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.filterValue.toLowerCase()));
-        },
+        const filterValue = this.filterValue.toLowerCase();
+        return this.contacts.map(contact => {
+          contact.visible = contact.name.toLowerCase().includes(filterValue);
+          return contact;
+        });
+      }
     },
 
     methods : {
